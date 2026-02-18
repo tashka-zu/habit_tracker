@@ -25,7 +25,7 @@ from rest_framework import permissions
 schema_view = get_schema_view(
     openapi.Info(
         title="Habit Tracker API",
-        default_version='v1',
+        default_version="v1",
         description="Документация для API трекера привычек",
     ),
     public=True,
@@ -37,6 +37,12 @@ urlpatterns = [
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/", include("habits.urls")),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path(
+        "swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
+    path("api/users/", include("users.urls")),
+    path("api/habits/", include("habits.urls")),
 ]

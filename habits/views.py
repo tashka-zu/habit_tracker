@@ -4,6 +4,12 @@ from .models import Habit
 from .serializers import HabitSerializer
 
 
+class PublicHabitListView(generics.ListAPIView):
+    queryset = Habit.objects.filter(is_public=True)
+    serializer_class = HabitSerializer
+    pagination_class = None
+
+
 class HabitListCreateView(generics.ListCreateAPIView):
     serializer_class = HabitSerializer
     permission_classes = [IsAuthenticated]
