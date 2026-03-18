@@ -24,4 +24,4 @@ def send_telegram_message(chat_id, message):
 
 @shared_task
 def test_task():
-    return f"Задача выполнена:="
+    return "Задача выполнена!"
