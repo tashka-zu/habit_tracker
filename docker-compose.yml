@@ -60,8 +60,6 @@ services:
         condition: service_healthy
       redis:
         condition: service_started
-      backend:
-        condition: service_started
     volumes:
       - .:/app
 
@@ -74,8 +72,6 @@ services:
       db:
         condition: service_healthy
       redis:
-        condition: service_started
-      backend:
         condition: service_started
     volumes:
       - .:/app
