@@ -36,6 +36,10 @@ services:
       - postgres_data:/var/lib/postgresql/data
     env_file:
       - .env
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: habit_tracker
     expose:
       - "5432"
     healthcheck:
