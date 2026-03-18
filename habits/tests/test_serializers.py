@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from habits.serializers import HabitSerializer
-from habits.models import Habit
 
 User = get_user_model()
 
